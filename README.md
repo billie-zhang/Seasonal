@@ -9,8 +9,7 @@ Our trained AI model accurately depicts the image from the camera and provide th
 Our front end was designed on Figma as a prototype and then developed implemented via React and Tailwind CSS. The AI model was taught using TeachableMachines through inputting hundreds of images of various fruits and their corresponding “ripeness” state. 
 
 #### [Figma Prototype](https://www.figma.com/proto/E8MFog3Dh6FzNB6So4I6g5/Seasonal?type=design&node-id=7-3&t=dmHtE4EY14lq7CrP-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2&mode=design)
-<img width="772" alt="Screenshot 2024-02-18 at 3 17 58 PM" src="https://github.com/billie-zhang/Seasonal/assets/82481786/036b0f78-2acb-4ca0-9109-773f20d72732">
-
+<img width="788" alt="Screenshot 2024-02-18 at 3 33 37 PM" src="https://github.com/billie-zhang/Seasonal/assets/82481786/1dafc158-f741-4c25-9d24-e8dc5c905c70">
 
 ## 🍉 Inspiration
 I am an avid fruit lover, but buying fruits, especially berries and melons can be a little bit of a struggle, so I came up with the idea to create an app that helps identify the perfect stage of the fruit. 
