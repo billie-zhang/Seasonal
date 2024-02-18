@@ -4,6 +4,7 @@ import "./ShowRecipe.css";
 const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
 
 const ShowRecipe = (props) => {
+  // eslint-disable-next-line
   const [text, setText] = useState("");
   const [response, setResponse] = useState("");
 

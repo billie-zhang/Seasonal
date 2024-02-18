@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./ShowRecipe.css";
 
 const InSeason = (props) => {
+  // eslint-disable-next-line
   const [response, setResponse] = useState("");
 
   const fruitsData = {

@@ -6,15 +6,19 @@ import ShowRecipe from './ShowRecipe';
 
 const FruitRipenessChecker = () => {
     const webcamRef = useRef(null);
+    // eslint-disable-next-line
     const canvasRef = useRef(null);
     const [model, setModel] = useState(null);
     const [metadata, setMetadata] = useState(null);
     const [modelLoaded, setModelLoaded] = useState(false);
+    // eslint-disable-next-line
     const [fruitInfo, setFruitInfo] = useState([{ className: 'Ripe Banana', probability: 0.6334966421127319 }]);
     const [top1Fruit, setTop1Fruit] = useState('');
     const [top2Fruit, setTop2Fruit] = useState('');
-    const [top1FruitProbability, setTop1FruitProbabilty] = useState(0);
-    const [top2FruitProbability, setTop2FruitProbabilty] = useState(0);
+    // eslint-disable-next-line
+    const [top1FruitProbability, setTop1FruitProbability] = useState(0);
+    // eslint-disable-next-line
+    const [top2FruitProbability, setTop2FruitProbability] = useState(0);
 
     useEffect(() => {
         const loadModel = async () => {
@@ -46,7 +50,7 @@ const FruitRipenessChecker = () => {
 
             // Cleanup function to clear the timeout if the component unmounts
             return () => clearTimeout(timer);
-        }
+        }// eslint-disable-next-line
     }, [modelLoaded]);
 
     const runModel = async () => {
@@ -116,8 +120,8 @@ const FruitRipenessChecker = () => {
                     console.log("set new fruits");
                     setTop1Fruit(classProbabilities[0].className);
                     setTop2Fruit(classProbabilities[1].className);
-                    setTop1FruitProbabilty(classProbabilities[0].probability);
-                    setTop2FruitProbabilty(classProbabilities[1].probability);
+                    setTop1FruitProbability(classProbabilities[0].probability);
+                    setTop2FruitProbability(classProbabilities[1].probability);
 
                     setFruitInfo(classProbabilities);
                 }
