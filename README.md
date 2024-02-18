@@ -1,7 +1,7 @@
 # 🍓 Seasonal
 The app that helps you pick the perfect fruits at the perfect time.
 
-## 🫐 [Try it out here!](https://main--seasonal-ellehacks2024.netlify.app)
+## 🫐 [Try it out here!](https://seasonal-app.vercel.app/)
 Seasonal is an app that scans fruits and informs consumers on the fruit ripeness, seasonality, and recipe selection. 
 Our trained AI model accurately depicts the image from the camera and provide the user with the number one match. The model will analyze the ripeness of the fruit and inform the user, as well as come up with recipes to use that produce in. 
 
