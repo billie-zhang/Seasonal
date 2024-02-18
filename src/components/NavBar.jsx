@@ -5,16 +5,7 @@ const Navbar = () => {
   return (
     <div className="w-full h-42 flex fixed ">
       <Link to="/">
-        <img
-          src={logo}
-          alt="logo"
-          style={{
-            height: "40px",
-            marginLeft: "20px",
-            marginTop: "20px",
-            paddingBottom: "15px",
-          }}
-        />
+        <img src={logo} alt="logo" className="h-8 ml-5 mt-5 pb-5 " />
       </Link>
     </div>
   );
