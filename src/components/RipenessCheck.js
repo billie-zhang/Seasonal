@@ -40,13 +40,12 @@ const FruitRipenessChecker = () => {
         loadModel();
     }, []);
 
-    // useEffect(() => { runModel() }, []);
     useEffect(() => {
         if (modelLoaded) {
             // Wait for a bit after the model is loaded before running runModel
             const timer = setTimeout(() => {
                 runModel();
-            }, 1000); // Adjust the delay here as needed, 1000 milliseconds = 1 second
+            }, 1000);
 
             // Cleanup function to clear the timeout if the component unmounts
             return () => clearTimeout(timer);
@@ -183,21 +182,6 @@ const FruitRipenessChecker = () => {
                 }}
                 videoConstraints={videoConstraints}
             />
-
-            {/* <canvas
-                ref={canvasRef}
-                style={{
-                    position: "flex",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                    left: 0,
-                    right: 0,
-                    textAlign: "center",
-                    zindex: 8,
-                    width: 640,
-                    height: 480,
-                }}
-            /> */}
             <div className="dashboard">
                 <div className="flex-between margin-bottom">
                     <h2>Fruit Ripeness Predictions</h2>
