@@ -3,19 +3,12 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-42 flex fixed ">
-      <Link to="/">
-        <img
-          src={logo}
-          alt="logo"
-          style={{
-            height: "40px",
-            marginLeft: "20px",
-            marginTop: "20px",
-            paddingBottom: "15px",
-          }}
-        />
-      </Link>
+    <div className="w-full h-18 flex fixed ">
+      <div>
+        <Link to="/">
+          <img src={logo} alt="logo" className="h-16 ml-5 mt-5 pb-5 " />
+        </Link>
+      </div>
     </div>
   );
 };
