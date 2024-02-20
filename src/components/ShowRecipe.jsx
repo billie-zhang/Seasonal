@@ -12,8 +12,14 @@ const ShowRecipe = (props) => {
   const [fruit, setFruit] = useState("");
 
   const processMessageToChatGPT = async () => {
+    setResponse(
+      "Generating recipe for " +
+        props.product +
+        "! Please allow up to 5 seconds."
+    );
     console.log(props.product);
     let ingredient = props.product;
+
     // if (ingredient === "") {
     //   console.log(fruit);
     //   ingredient = fruit;
