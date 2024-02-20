@@ -13,8 +13,8 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <div className="h-screen flex flex-col items-center justify-center bg-pale-green mt-18">
+    <div className="h-screen sm:h-[1000px] md:h-screen bg-pale-green pt-[80px] md:pt-[40px] lg:pt-[100px]">
+      <div className="flex flex-col items-center justify-center w-full h-full">
         <div className="font-signature m-5 text-3xl font-bold">
           Welcome to Seasonal!
         </div>

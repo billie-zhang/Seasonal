@@ -41,9 +41,9 @@ export default function BottomNav() {
         <Link to="/in-season">
           <BottomNavigationAction value="recipes" icon={<MenuBookIcon />} />
         </Link>
-        <Link to="/profile">
+        {/* <Link to="/profile">
           <BottomNavigationAction value="profile" icon={<PersonIcon />} />
-        </Link>
+        </Link> */}
         <Outlet />
       </BottomNavigation>
     </div>
