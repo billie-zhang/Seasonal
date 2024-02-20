@@ -26,8 +26,9 @@ const ShowRecipe = (props) => {
     // }
 
     const message_content =
-      "Format: Beautiful looking markdown. I am asking you for a recipe with this ingredient " +
-      ingredient;
+      "I am asking you for a recipe with this ingredient " +
+      ingredient +
+      ". Output format: Beautiful looking Markdown text format with all of different markdown elements to be super visually pleasing, similar to a github/linkedin post readme with emojis ideally for every line. ";
     const apiRequestBody = {
       model: "gpt-3.5-turbo-0125",
       messages: [{ role: "system", content: message_content }],
@@ -77,11 +78,16 @@ const ShowRecipe = (props) => {
           marginTop: "10px",
         }}
       >
+        <br />
+
         <button style={buttonStyle} onClick={processMessageToChatGPT}>
           Generate a Recipe
         </button>
       </div>
       <ReactMarkdown className="recipe-box">{response}</ReactMarkdown>
+      <br />
+      <br />
+      <br />
     </div>
   );
 };
