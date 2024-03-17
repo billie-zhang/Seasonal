@@ -38,7 +38,7 @@ const InSeason = (props) => {
   };
 
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", textAlign: "center" }}>
+    <div className="pt-[120px] text-center">
       <h2 style={{ fontSize: "18px", fontWeight: "bold" }}>
         In season in winter 📅
       </h2>

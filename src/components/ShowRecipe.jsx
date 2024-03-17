@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Markdown from "react-markdown";
+import ReactMarkdown from "react-markdown";
 import "./ShowRecipe.css";
 
 const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
@@ -7,14 +9,28 @@ const ShowRecipe = (props) => {
   // eslint-disable-next-line
   const [text, setText] = useState("");
   const [response, setResponse] = useState("");
+  const [fruit, setFruit] = useState("");
 
   const processMessageToChatGPT = async () => {
+    setResponse(
+      "Generating recipe for " +
+        props.product +
+        "! Please allow up to 5 seconds."
+    );
     console.log(props.product);
+    let ingredient = props.product;
+
+    // if (ingredient === "") {
+    //   console.log(fruit);
+    //   ingredient = fruit;
+    // }
 
     const message_content =
-      "I am asking you for a recipe with this ingredient " + props.product;
+      "I am asking you for a recipe with this ingredient " +
+      ingredient +
+      ". Output format: Beautiful looking Markdown text format with all of different markdown elements to be super visually pleasing, similar to a github/linkedin post readme with emojis ideally for every line. ";
     const apiRequestBody = {
-      model: "gpt-3.5-turbo",
+      model: "gpt-3.5-turbo-0125",
       messages: [{ role: "system", content: message_content }],
     };
 
@@ -56,16 +72,22 @@ const ShowRecipe = (props) => {
       <div
         style={{
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           marginTop: "10px",
         }}
       >
+        <br />
+
         <button style={buttonStyle} onClick={processMessageToChatGPT}>
           Generate a Recipe
         </button>
       </div>
-      <p className="recipe-box">{response}</p>
+      <ReactMarkdown className="recipe-box">{response}</ReactMarkdown>
+      <br />
+      <br />
+      <br />
     </div>
   );
 };

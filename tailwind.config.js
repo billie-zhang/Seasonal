@@ -11,7 +11,9 @@ module.exports = {
         'dark-brown': '#2E221F',
         'green': '#68A357',
         'dark-green': '#256014',
-        'pale-green': '#E6F0E3',
+        'light-green': '#E6F0E3',
+        'pale-green': '#F8FFF6',
+
       },
     },
     fontFamily: {
