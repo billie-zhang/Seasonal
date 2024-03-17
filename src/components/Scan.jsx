@@ -94,15 +94,6 @@ const Scan = () => {
         const normalized = resized.div(255.0).expandDims(0);
         const predictions = await model.predict(normalized);
 
-        // // Convert logits to probabilities and class names
-        // const classes = Array.from(predictions.argMax(-1).dataSync())[0];
-        // const fruitInfo = metadata.labels[classes];
-        // console.log(fruitInfo); // Log the class name
-
-        // // Update state to change AR text
-
-        // console.log(predictions);
-
         const topK = 3; // for example, to get top 3 predictions
         const { values, indices } = tf.topk(predictions, topK);
         const classesIndices = Array.from(indices.dataSync());
@@ -168,17 +159,13 @@ const Scan = () => {
   };
 
   return (
-    <div>
+    <div className="pt-[80px] lg:pt-[100px]">
       <Webcam
         ref={webcamRef}
         muted={true}
+        className="rounded-lg	 "
         style={{
           position: "flex",
-          // marginLeft: "auto",
-          // marginRight: "auto",
-          left: 0,
-          right: 0,
-          textAlign: "center",
           zindex: 9,
           width: "100%",
           height: 380,
@@ -190,7 +177,7 @@ const Scan = () => {
           <h2>Fruit Ripeness Predictions</h2>
         </div>
         <div className="margin-bottom">
-          <p className="flex-between text-gray-800">
+          <p className="flex-between text-dark-brown">
             <span className="flex-item">
               <span className="margin-left">{top1Fruit}</span>
             </span>
@@ -206,7 +193,7 @@ const Scan = () => {
           </div>
         </div>
         <div className="margin-bottom">
-          <p className="flex-between text-gray-800">
+          <p className="flex-between text-dark-brown">
             <span className="flex-item">
               <span className="margin-left">{top2Fruit}</span>
             </span>
