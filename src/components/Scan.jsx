@@ -159,7 +159,7 @@ const Scan = () => {
   };
 
   return (
-    <div className="pt-[80px] lg:pt-[100px]">
+    <div className="pt-[120px]">
       <Webcam
         ref={webcamRef}
         muted={true}
