@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="h-[1000px] md:h-screen bg-pale-green pt-[80px] lg:pt-[100px]">
+    <div className="h-screen bg-pale-green">
       <div className="flex flex-col items-center justify-center w-full h-full">
         <div className="font-signature m-5 text-3xl font-bold">
           Welcome to Seasonal!

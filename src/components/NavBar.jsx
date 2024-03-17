@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-18 flex fixed ">
+    <div className="w-full h-[110px] fixed flex bg-pale-green shadow-md">
       <div>
         <Link to="/">
-          <img src={logo} alt="logo" className="h-16 ml-5 mt-5 pb-5 " />
+          <img src={logo} alt="logo" className="h-[70px] ml-7 mt-7 pb-6 " />
         </Link>
       </div>
     </div>
