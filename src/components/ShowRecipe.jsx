@@ -56,31 +56,13 @@ const ShowRecipe = (props) => {
     }
   };
 
-  const buttonStyle = {
-    margin: "auto",
-    fontSize: "16px",
-    padding: "10px 20px",
-    backgroundColor: "#4CAF50", // A pleasant green
-    color: "white",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-  };
-
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          marginTop: "10px",
-        }}
-      >
-        <br />
-
-        <button style={buttonStyle} onClick={processMessageToChatGPT}>
+      <div className="flex flex-col items-center	justify-center mt-3 ">
+        <button
+          className="text-l px-4 py-5 bg-green text-white border-none rounded-md cursor-pointer"
+          onClick={processMessageToChatGPT}
+        >
           Generate a Recipe
         </button>
       </div>
