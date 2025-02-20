@@ -172,44 +172,46 @@ const Scan = () => {
         }}
         videoConstraints={videoConstraints}
       />
-      <div className="dashboard">
-        <div className="flex-between margin-bottom">
-          <h2>Fruit Ripeness Predictions</h2>
-        </div>
-        <div className="margin-bottom">
-          <p className="flex-between text-dark-brown">
-            <span className="flex-item">
-              <span className="margin-left">{top1Fruit}</span>
-            </span>
-            <span className="font-bold">
-              {(Math.round(top1FruitProbability * 10000) / 100).toFixed(2)}%
-            </span>
-          </p>
-          <div className="progress-bar-container">
-            <div
-              className="progress-bar"
-              style={{ width: `${Math.round(top1FruitProbability * 100)}%` }}
-            ></div>
+      <div className="m-3 py-8 px-4 mb-28 bg-pale-green shadow-md rounded-md flex justify-center items-center max-w-screen-lg mx-auto">
+        <div className="w-full max-w-lg">
+          <div className="flex items-center justify-between mb-2">
+            <h2>Fruit Ripeness Predictions</h2>
           </div>
-        </div>
-        <div className="margin-bottom">
-          <p className="flex-between text-dark-brown">
-            <span className="flex-item">
-              <span className="margin-left">{top2Fruit}</span>
-            </span>
-            <span className="font-bold">
-              {(Math.round(top2FruitProbability * 10000) / 100).toFixed(2)}%
-            </span>
-          </p>
-          <div className="progress-bar-container">
-            <div
-              className="progress-bar"
-              style={{ width: `${Math.round(top2FruitProbability * 100)}%` }}
-            ></div>
+          <div className="mb-2">
+            <p className="flex-between text-dark-brown">
+              <span className="flex-item">
+                <span className="margin-left">{top1Fruit}</span>
+              </span>
+              <span className="font-bold">
+                {(Math.round(top1FruitProbability * 10000) / 100).toFixed(2)}%
+              </span>
+            </p>
+            <div className="progress-bar-container">
+              <div
+                className="progress-bar"
+                style={{ width: `${Math.round(top1FruitProbability * 100)}%` }}
+              ></div>
+            </div>
+          </div>
+          <div className="mb-2">
+            <p className="flex-between text-dark-brown">
+              <span className="flex-item">
+                <span className="margin-left">{top2Fruit}</span>
+              </span>
+              <span className="font-bold">
+                {(Math.round(top2FruitProbability * 10000) / 100).toFixed(2)}%
+              </span>
+            </p>
+            <div className="progress-bar-container">
+              <div
+                className="progress-bar"
+                style={{ width: `${Math.round(top2FruitProbability * 100)}%` }}
+              ></div>
+            </div>
           </div>
         </div>
       </div>
-      <ShowRecipe product={top1Fruit} />
+      {/* <ShowRecipe product={top1Fruit} /> */}
     </div>
   );
 };
