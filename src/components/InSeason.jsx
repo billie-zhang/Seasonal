@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ShowRecipe.css";
 
-const InSeason = (props) => {
-  // eslint-disable-next-line
-  const [response, setResponse] = useState("");
+const InSeason = () => {
+  const [currentMonth, setCurrentMonth] = useState("");
 
   const fruitsData = {
     oranges: {
@@ -37,28 +36,43 @@ const InSeason = (props) => {
     grapes: { months: ["October", "November", "December"], emoji: "🍇" },
   };
 
+  // Get the current month
+  useEffect(() => {
+    const month = new Date().toLocaleString("default", { month: "long" });
+    setCurrentMonth(month);
+  }, []);
+
+  // Filter fruits in season based on current month
+  const fruitsInSeason = Object.entries(fruitsData).filter(([fruit, data]) =>
+    data.months.includes(currentMonth)
+  );
+
   return (
-    <div className="pt-[120px] text-center">
-      <h2 style={{ fontSize: "18px", fontWeight: "bold" }}>
-        In season in winter 📅
+    <div className="py-32 text-center">
+      <h2 className="font-bold text-3xl ">
+        Fruits in season in {currentMonth} 📅
       </h2>
       <div>
-        {Object.entries(fruitsData).map(([fruit, data]) => (
-          <div
-            key={fruit}
-            style={{
-              margin: "20px",
-              padding: "10px",
-              border: "1px solid #ccc",
-              borderRadius: "8px",
-            }}
-          >
-            <h3>
-              {data.emoji} {fruit.charAt(0).toUpperCase() + fruit.slice(1)}
-            </h3>
-            <p>Season: {data.months.join(", ")}</p>
-          </div>
-        ))}
+        {fruitsInSeason.length > 0 ? (
+          fruitsInSeason.map(([fruit, data]) => (
+            <div
+              key={fruit}
+              style={{
+                margin: "20px",
+                padding: "10px",
+                border: "1px solid #ccc",
+                borderRadius: "8px",
+              }}
+            >
+              <h3>
+                {data.emoji} {fruit.charAt(0).toUpperCase() + fruit.slice(1)}
+              </h3>
+              <p>Season: {data.months.join(", ")}</p>
+            </div>
+          ))
+        ) : (
+          <p>No fruits in season this month. 😔</p>
+        )}
       </div>
     </div>
   );
