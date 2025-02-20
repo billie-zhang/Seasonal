@@ -8,66 +8,71 @@ const InSeason = () => {
     oranges: {
       months: ["December", "January", "February", "March", "April"],
       emoji: "🍊",
+      fact: "Oranges are rich in Vitamin C and antioxidants, promoting healthy skin and immunity.",
     },
     grapefruits: {
       months: ["December", "January", "February", "March", "April"],
       emoji: "🍊",
+      fact: "Grapefruits are an excellent source of Vitamin A, C, and fiber.",
     },
     pomegranates: {
       months: ["October", "November", "December", "January", "February"],
       emoji: "🍑",
+      fact: "Pomegranates are packed with antioxidants and Vitamin K.",
     },
     persimmons: {
       months: ["November", "December", "January", "February"],
       emoji: "🍑",
+      fact: "Persimmons are a great source of Vitamin A, C, and fiber.",
     },
     kiwis: {
       months: ["November", "December", "January", "February", "March"],
       emoji: "🥝",
+      fact: "Kiwis are high in Vitamin C, K, and antioxidants, supporting heart health.",
     },
     lemons: {
       months: ["November", "December", "January", "February", "March"],
       emoji: "🍋",
+      fact: "Lemons are rich in Vitamin C and flavonoids, which help detoxify the body.",
     },
     mandarins: {
       months: ["November", "December", "January", "February"],
       emoji: "🍊",
+      fact: "Mandarins are high in Vitamin C and low in calories, perfect for immunity.",
     },
-    grapes: { months: ["October", "November", "December"], emoji: "🍇" },
+    grapes: {
+      months: ["October", "November", "December"],
+      emoji: "🍇",
+      fact: "Grapes are rich in Vitamin C and antioxidants, which help protect the body from oxidative stress.",
+    },
   };
 
-  // Get the current month
   useEffect(() => {
     const month = new Date().toLocaleString("default", { month: "long" });
     setCurrentMonth(month);
   }, []);
 
-  // Filter fruits in season based on current month
   const fruitsInSeason = Object.entries(fruitsData).filter(([fruit, data]) =>
     data.months.includes(currentMonth)
   );
 
   return (
-    <div className="py-32 text-center">
-      <h2 className="font-bold text-3xl ">
+    <div className="py-32 mx-16 text-center">
+      <h2 className="font-bold text-3xl mb-8">
         Fruits in season in {currentMonth} 📅
       </h2>
-      <div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {fruitsInSeason.length > 0 ? (
           fruitsInSeason.map(([fruit, data]) => (
             <div
               key={fruit}
-              style={{
-                margin: "20px",
-                padding: "10px",
-                border: "1px solid #ccc",
-                borderRadius: "8px",
-              }}
+              className="border p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
             >
-              <h3>
+              <h3 className="text-xl font-semibold">
                 {data.emoji} {fruit.charAt(0).toUpperCase() + fruit.slice(1)}
               </h3>
               <p>Season: {data.months.join(", ")}</p>
+              <p className="mt-4">{data.fact}</p>
             </div>
           ))
         ) : (
