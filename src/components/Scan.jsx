@@ -5,20 +5,15 @@ import ShowRecipe from "./ShowRecipe";
 
 const Scan = () => {
   const webcamRef = useRef(null);
-  // eslint-disable-next-line
-  const canvasRef = useRef(null);
   const [model, setModel] = useState(null);
   const [metadata, setMetadata] = useState(null);
   const [modelLoaded, setModelLoaded] = useState(false);
-  // eslint-disable-next-line
   const [fruitInfo, setFruitInfo] = useState([
     { className: "Ripe Banana", probability: 0.6334966421127319 },
   ]);
   const [top1Fruit, setTop1Fruit] = useState("");
   const [top2Fruit, setTop2Fruit] = useState("");
-  // eslint-disable-next-line
   const [top1FruitProbability, setTop1FruitProbability] = useState(0);
-  // eslint-disable-next-line
   const [top2FruitProbability, setTop2FruitProbability] = useState(0);
 
   useEffect(() => {
@@ -52,7 +47,7 @@ const Scan = () => {
 
       // Cleanup function to clear the timeout if the component unmounts
       return () => clearTimeout(timer);
-    } // eslint-disable-next-line
+    }
   }, [modelLoaded]);
 
   const runModel = async () => {
@@ -84,9 +79,6 @@ const Scan = () => {
         // Set video width
         webcamRef.current.video.width = videoWidth;
         webcamRef.current.video.height = videoHeight;
-        // Set canvas height and width
-        // canvasRef.current.width = videoWidth;
-        // canvasRef.current.height = videoHeight;
 
         const tfVideo = tf.browser.fromPixels(video);
         const resized = tf.image.resizeBilinear(tfVideo, [224, 224]);
@@ -98,7 +90,6 @@ const Scan = () => {
         const classesIndices = Array.from(indices.dataSync());
         const probabilities = Array.from(values.dataSync());
 
-        // Assuming metadata.labels is an array mapping indices to class names
         const classes = classesIndices.map((index) => metadata.labels[index]);
         const classProbabilities = classes.map((className, i) => ({
           className,
@@ -117,32 +108,30 @@ const Scan = () => {
           setFruitInfo(classProbabilities);
         }
 
-        const numDetections = predictions.shape[1]; // Assuming the number of detections is at index 1
-        const predictionArray = await predictions.array(); // Convert the tensor to a JavaScript array
+        const numDetections = predictions.shape[1];
+        const predictionArray = await predictions.array();
 
         console.log(predictionArray);
-        // Process the array to extract bounding boxes
+
         const boxes = [];
         for (let i = 0; i < numDetections; i++) {
           const [y_min, x_min, y_max, x_max, score, classId] =
             predictionArray[i];
           console.log(predictionArray[i]);
           if (score > 0.00000001) {
-            // Define a threshold for detection confidence
             const bbox = {
               yMin: y_min,
               xMin: x_min,
               yMax: y_max,
               xMax: x_max,
             };
-            const className = metadata.labels[classId]; // Map class ID to label
+            const className = metadata.labels[classId];
             boxes.push({ bbox, className, score });
           }
         }
 
         console.log(boxes);
 
-        // Cleanup tensors
         tfVideo.dispose();
         resized.dispose();
         normalized.dispose();
@@ -154,7 +143,7 @@ const Scan = () => {
   };
 
   const videoConstraints = {
-    facingMode: "environment", // This requests the back camera
+    facingMode: "environment",
   };
 
   return (
@@ -162,7 +151,7 @@ const Scan = () => {
       <Webcam
         ref={webcamRef}
         muted={true}
-        className="rounded-lg	 "
+        className="rounded-lg"
         style={{
           position: "flex",
           zindex: 9,
@@ -171,7 +160,7 @@ const Scan = () => {
         }}
         videoConstraints={videoConstraints}
       />
-      <div className="m-3 py-8 px-10 bg-pale-green shadow-md rounded-md justify-center max-w-screen-lg ">
+      <div className="m-3 py-8 px-10 mb-28 bg-pale-green shadow-md rounded-md justify-center max-w-screen-lg w-full ">
         <div className="flex items-center justify-between mb-2">
           <h2>Fruit Ripeness Predictions</h2>
         </div>
@@ -208,7 +197,7 @@ const Scan = () => {
           </div>
         </div>
       </div>
-      <ShowRecipe product={top1Fruit} />
+      {/* <ShowRecipe product={top1Fruit} /> */}
     </div>
   );
 };
