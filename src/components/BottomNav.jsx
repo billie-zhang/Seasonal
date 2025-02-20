@@ -39,9 +39,9 @@ export default function BottomNav() {
           <Link to="/">
             <BottomNavigationAction value="home" icon={<HomeIcon />} />
           </Link>
-          <Link to="/search">
+          {/* <Link to="/search">
             <BottomNavigationAction value="search" icon={<SearchIcon />} />
-          </Link>
+          </Link> */}
           <Link to="/scan">
             <BottomNavigationAction value="scan" icon={<PhotoCameraIcon />} />
           </Link>

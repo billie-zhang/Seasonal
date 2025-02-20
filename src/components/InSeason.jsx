@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./ShowRecipe.css";
 
 const InSeason = () => {
-  const [currentMonth, setCurrentMonth] = useState("");
+  const [selectedMonth, setSelectedMonth] = useState("");
 
   const fruitsData = {
     oranges: {
@@ -49,18 +49,50 @@ const InSeason = () => {
 
   useEffect(() => {
     const month = new Date().toLocaleString("default", { month: "long" });
-    setCurrentMonth(month);
+    setSelectedMonth(month);
   }, []);
 
+  const handleMonthChange = (event) => {
+    setSelectedMonth(event.target.value);
+  };
+
+  // Filter fruits based on selected month
   const fruitsInSeason = Object.entries(fruitsData).filter(([fruit, data]) =>
-    data.months.includes(currentMonth)
+    data.months.includes(selectedMonth)
   );
 
   return (
     <div className="py-32 mx-16 text-center">
       <h2 className="font-bold text-3xl mb-8">
-        Fruits in season in {currentMonth} 📅
+        Fruits in season in {selectedMonth}
       </h2>
+      <div className="flex flex-row justify-center">
+        <p>see what's in season in: </p>
+        <select
+          value={selectedMonth}
+          onChange={handleMonthChange}
+          className="mb-8 p-2 border rounded-md"
+        >
+          {[
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ].map((month) => (
+            <option key={month} value={month}>
+              {month}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {fruitsInSeason.length > 0 ? (
           fruitsInSeason.map(([fruit, data]) => (
@@ -72,7 +104,9 @@ const InSeason = () => {
                 {data.emoji} {fruit.charAt(0).toUpperCase() + fruit.slice(1)}
               </h3>
               <p>Season: {data.months.join(", ")}</p>
-              <p className="mt-4">{data.fact}</p>
+              <p className="mt-4">
+                <i>{data.fact}</i>
+              </p>
             </div>
           ))
         ) : (
