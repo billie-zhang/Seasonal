@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./ShowRecipe.css";
 
-const InSeason = (props) => {
-  // eslint-disable-next-line
-  const [response, setResponse] = useState("");
+const InSeason = () => {
+  const [selectedMonth, setSelectedMonth] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
 
   const fruitsData = {
